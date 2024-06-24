@@ -39,11 +39,11 @@ body {
 }
 
 .crossed {
-  background-image: url(x.png);
+  background-image: url(Assets/x.png);
   background-size: cover;
 }
 .circled {
-  background-image: url(o.png);
+  background-image: url(Assets/o.png);
   background-size: cover;
 }
 
