@@ -10,21 +10,21 @@ cells.forEach((cell, id) => (cell.id = id %3));
 let crossPlaying = true;
 
 cells.forEach((cell) => {
-  cell.addEventListener("click", () => {
-    if (!cell.classList.contains("idle")) return;
+    cell.addEventListener("click", () => {
+        if (!cell.classList.contains("idle")) return;
 
-    let curRow = parseInt(cell.parentElement.id);
-    let curCell = parseInt(cell.id);
+        let curRow = parseInt(cell.parentElement.id);
+        let curCell = parseInt(cell.id);
 
-    let currentPlayer = crossPlaying ? "X" : "O";
-    let playerClass = crossPlaying ? "crossed" : "circled";
+        let currentPlayer = crossPlaying ? "X" : "O";
+        let playerClass = crossPlaying ? "crossed" : "circled";
 
-    board[curRow][curCell] = currentPlayer;
-    cell.classList.add(playerClass);
-    cell.classList.remove("idle");
+        board[curRow][curCell] = currentPlayer;
+        cell.classList.add(playerClass);
+        cell.classList.remove("idle");
 
-    crossPlaying = !crossPlaying;
-  });
+        crossPlaying = !crossPlaying;
+    });
 });
 
 const checkWin = (player) => { 
@@ -48,19 +48,12 @@ const checkWin = (player) => {
 };
 
 setInterval(()=>{
-    if(checkWin("X"))
-    {
-        alert("Cross Won!")
-    }
-    else if(checkWin("O"))
-    {
-         alert("Circle Won!")
+    if (checkWin("X")) alert("Cross Won!")
+    else if (checkWin("O")) alert("Circle Won!")
+
+    if(checkWin("X") || checkWin("O")) {
+        crossPlaying="false"
+        board = Array.from({ length: 3 }, () => Array(3).fill(null));
     }
 
-    if(checkWin("X") || checkWin("O"))
-        {
-            crossPlaying="false"
-             board = Array.from({ length: 3 }, () => Array(3).fill(null));
-        }
 },20)
-    
